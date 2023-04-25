@@ -26,25 +26,46 @@ public class UIManager : MonoBehaviour  {
         UpdateScore();
     }
 
-    private void Update() {
-        if (_txtRestart.gameObject.activeSelf && Input.GetKeyDown(KeyCode.R)) {
+    private void Update()
+    {
+        GestionRestartGame();
+
+        GestionPause();
+    }
+
+    private void GestionRestartGame()
+    {
+        if (_txtRestart.gameObject.activeSelf && Input.GetKeyDown(KeyCode.R))
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        else if (_txtRestart.gameObject.activeSelf && Input.GetKeyDown(KeyCode.Escape)) {
+        else if (_txtRestart.gameObject.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        {
             SceneManager.LoadScene(0);
         }
+    }
 
-        if((Input.GetKeyDown(KeyCode.Escape) && !_txtRestart.gameObject.activeSelf) && !_pauseOn)  {
+    private void GestionPause()
+    {
+        if ((Input.GetKeyDown(KeyCode.Escape) && !_txtRestart.gameObject.activeSelf) && !_pauseOn)
+        {
             _pausePanel.SetActive(true);
             Time.timeScale = 0;
             _pauseOn = true;
         }
-        else if ((Input.GetKeyDown(KeyCode.Escape) && !_txtRestart.gameObject.activeSelf) && _pauseOn) {
-            _pausePanel.SetActive(false);
-            Time.timeScale = 1;
-            _pauseOn = false;
+        else if ((Input.GetKeyDown(KeyCode.Escape) && !_txtRestart.gameObject.activeSelf) && _pauseOn)
+        {
+            EnleverPause();
         }
     }
+
+    private void EnleverPause()
+    {
+        _pausePanel.SetActive(false);
+        Time.timeScale = 1;
+        _pauseOn = false;
+    }
+
     public void AjouterScore(int points) {
         _score += points;
         UpdateScore();
