@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
         //Mouvements personnage
         Vector3 direction = new Vector3(horizInput, vertInput, 0f);
         transform.Translate(direction * Time.deltaTime * _vitesse);
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -50f, 50f), -1.57f, 0f);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -60f, 60f), -1.57f, 0f);
 
         //Orientation personnage
         
