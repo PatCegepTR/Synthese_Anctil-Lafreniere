@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float _vitesse = 10.0f;
     //[SerializeField] private float _cadenceTir = 0.3f;
-    [SerializeField] private int _viesJoueur = 3;
+    [SerializeField] private int _viesJoueur = 100;
     //[SerializeField] private GameObject _laserPrefab = default;
     //[SerializeField] private GameObject _tripleLasersPrefab = default;
 
@@ -64,26 +64,19 @@ public class Player : MonoBehaviour
     public void Damage()
     {
 
-        //if(!_shield.activeSelf)
-        //{
-        //    --_viesJoueur;
-        //    UIManager _uiManager = FindObjectOfType<UIManager>();
-        //    _uiManager.ChangeLivesDisplayImage(_viesJoueur);
-        //}
-        //else
-        //{
-        //    _shield.SetActive(false);
-        //}
-
+     
+        --_viesJoueur;
+        UIManager _uiManager = FindObjectOfType<UIManager>();
+        _uiManager.BarreDeVieLongueur(_viesJoueur);
         
 
-        //if(_viesJoueur < 1)
-        //{
-        //    SpawnManager _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
-        //    //SpawnManager _spawnManager = FindObjectOfType<SpawnManager>();  Fait la même chose
-        //    _spawnManager.FinJeu();
-        //    Destroy(gameObject);
-        //} 
+        if(_viesJoueur < 1)
+        {
+            //SpawnManager _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+            //SpawnManager _spawnManager = FindObjectOfType<SpawnManager>();  Fait la même chose
+            //_spawnManager.FinJeu();
+            //Destroy(gameObject);
+        } 
     }
 
    

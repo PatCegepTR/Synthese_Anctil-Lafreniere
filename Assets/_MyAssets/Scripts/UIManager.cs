@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour  {
     [SerializeField] private TextMeshProUGUI _txtGameOver = default;
     [SerializeField] private TextMeshProUGUI _txtRestart = default;
     [SerializeField] private TextMeshProUGUI _txtQuit = default;
-    //[SerializeField] private Image _livesDisplayImage = default;
+    [SerializeField] private Image _barreVie = default;
     //[SerializeField] private Sprite[] _liveSprites = default;
     [SerializeField] private GameObject _pausePanel = default;
     private bool _pauseOn = false;
@@ -75,15 +75,14 @@ public class UIManager : MonoBehaviour  {
         _txtScore.text = "Score : " + _score.ToString();
     }
 
-    //public void ChangeLivesDisplayImage(int noImage) {
-    //    if (noImage < 0) {
-    //        noImage = 0;
-    //    }
-    //    _livesDisplayImage.sprite = _liveSprites[noImage];
-    //    if (noImage == 0) {
-    //        GameOverSequence();
-    //    }
-    //}
+    public void BarreDeVieLongueur(int pointsVie) {
+        
+        _barreVie.fillAmount = pointsVie/100;
+
+        if (pointsVie <= 0) {
+            GameOverSequence();
+        }
+    }
 
     private void GameOverSequence() {
         _txtGameOver.gameObject.SetActive(true);
