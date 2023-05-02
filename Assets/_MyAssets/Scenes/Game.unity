@@ -413,8 +413,9 @@ GameObject:
   m_Component:
   - component: {fileID: 418305985}
   - component: {fileID: 418305984}
+  - component: {fileID: 418305986}
   m_Layer: 0
-  m_Name: SpawnZombie
+  m_Name: SpawnManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -434,6 +435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefabEnemie: {fileID: 1630827973193480820, guid: 4ab15ed0ef268654d956a9f014410c1e, type: 3}
   _enemyContainer: {fileID: 1593086132}
+  _isSpawning: 0
 --- !u!4 &418305985
 Transform:
   m_ObjectHideFlags: 0
@@ -449,6 +451,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &418305986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418305983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4238795be4587d40b31ec5e006d1cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefabEnemie: {fileID: 1630827973193480820, guid: 4ab15ed0ef268654d956a9f014410c1e, type: 3}
+  _enemyContainer: {fileID: 1593086132}
 --- !u!1 &845796267
 GameObject:
   m_ObjectHideFlags: 0
