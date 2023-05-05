@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
         //Mouvements personnage
         Vector3 direction = new Vector3(horizInput, vertInput, 0f);
         transform.Translate(direction * Time.deltaTime * _vitesse);
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -60f, 60f), -1.34f, 0f);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -34f, 34f), -1.34f, 0f);
 
         //Orientation personnage avec animations
         if (horizInput < 0f)
@@ -70,6 +70,16 @@ public class Player : MonoBehaviour
             _anim.SetBool("TurnLeft", false);
             _anim.SetBool("TurnRight", false);
         }
+
+
+
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("bozoooooo");
+            GetComponent<Rigidbody2D>().velocity = new Vector2(0,500);
+        }
+
 
     }
 
