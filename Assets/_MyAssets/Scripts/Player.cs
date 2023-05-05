@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
         
         _uiManager.BarreDeVieLongueur(_viesJoueur);
         
-        //if(_viesJoueur < 1)
+        if(_viesJoueur <= 0)
         {
             //SpawnManager _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
             //SpawnManager _spawnManager = FindObjectOfType<SpawnManager>();  Fait la même chose
