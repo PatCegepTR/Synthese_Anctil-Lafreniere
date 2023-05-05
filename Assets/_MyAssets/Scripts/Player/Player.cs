@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float _vitesse = 10.0f;
+    [SerializeField] private float _forceSaut = 5.0f;
     //[SerializeField] private float _cadenceTir = 0.3f;
 
     //[SerializeField] private GameObject _laserPrefab = default;
@@ -51,16 +52,23 @@ public class Player : MonoBehaviour
         //Mouvements personnage
         Vector3 direction = new Vector3(horizInput, vertInput, 0f);
         transform.Translate(direction * Time.deltaTime * _vitesse);
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -60f, 60f), -1.57f, 0f);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -60f, 60f), -1.34f, 0f);
 
-        //Orientation personnage
-        if (horizInput == 0f)
+        //Orientation personnage avec animations
+        if (horizInput < 0f)
         {
-            _anim.SetBool("Run", false);
+            _anim.SetBool("TurnLeft", true);
+            _anim.SetBool("TurnRight", false);
+        }
+        else if (horizInput > 0f)
+        {
+            _anim.SetBool("TurnRight", true);
+            _anim.SetBool("TurnLeft", false);
         }
         else
         {
-            _anim.SetBool("Run", true);
+            _anim.SetBool("TurnLeft", false);
+            _anim.SetBool("TurnRight", false);
         }
 
     }

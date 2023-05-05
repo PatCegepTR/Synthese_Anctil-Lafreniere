@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour  {
     [SerializeField] private TextMeshProUGUI _txtRestart = default;
     [SerializeField] private TextMeshProUGUI _txtQuit = default;
     [SerializeField] private Image _barreVie = default;
-    //[SerializeField] private Sprite[] _liveSprites = default;
+    [SerializeField] private Sprite[] _couleurBarre = default;
     [SerializeField] private GameObject _pausePanel = default;
     private bool _pauseOn = false;
     
@@ -79,7 +79,25 @@ public class UIManager : MonoBehaviour  {
     public void BarreDeVieLongueur(float pointsVie) {
         
         _barreVie.fillAmount = pointsVie / 100;
-        Debug.Log(pointsVie / 100);
+        //Debug.Log(pointsVie / 100);
+
+        if (pointsVie >= 60)
+        {
+            _barreVie.sprite = _couleurBarre[0];
+        }
+        else if(pointsVie >= 35)
+        {
+            _barreVie.sprite = _couleurBarre[1];
+        }
+        else if (pointsVie > 15)
+        {
+            _barreVie.sprite = _couleurBarre[2];
+        }
+        else if (pointsVie <= 15)
+        {
+            _barreVie.sprite = _couleurBarre[3];
+        }
+
         if (pointsVie <= 0) {
            GameOverSequence();
         }
