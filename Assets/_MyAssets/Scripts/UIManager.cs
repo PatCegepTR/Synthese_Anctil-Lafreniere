@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Runtime.CompilerServices;
 
 public class UIManager : MonoBehaviour  {
     
@@ -75,12 +76,12 @@ public class UIManager : MonoBehaviour  {
         _txtScore.text = "Score : " + _score.ToString();
     }
 
-    public void BarreDeVieLongueur(int pointsVie) {
+    public void BarreDeVieLongueur(float pointsVie) {
         
-        _barreVie.fillAmount = pointsVie/100;
-
+        _barreVie.fillAmount = pointsVie / 100;
+        Debug.Log(pointsVie / 100);
         if (pointsVie <= 0) {
-            GameOverSequence();
+           GameOverSequence();
         }
     }
 

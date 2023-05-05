@@ -7,17 +7,19 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float _vitesse = 10.0f;
     //[SerializeField] private float _cadenceTir = 0.3f;
-    [SerializeField] private int _viesJoueur = 100;
+    
+    [SerializeField] private Image _barreVie = default;
     //[SerializeField] private GameObject _laserPrefab = default;
     //[SerializeField] private GameObject _tripleLasersPrefab = default;
 
     //private float _canFire = -1f;
     //private float _cadenceInitiale;
-
-
+    private Animator _anim;
+    private float _viesJoueur = 100;
     private void Start()
     {
         //_cadenceInitiale = _cadenceTir;  
+        _anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -53,7 +55,14 @@ public class Player : MonoBehaviour
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -60f, 60f), -1.57f, 0f);
 
         //Orientation personnage
-        
+        if (horizInput == 0f)
+        {
+            _anim.SetBool("Run", false);
+        }
+        else
+        {
+            _anim.SetBool("Run", true);
+        }
 
     }
 
@@ -64,13 +73,13 @@ public class Player : MonoBehaviour
     public void Damage()
     {
 
-     
-        --_viesJoueur;
+        _viesJoueur = _viesJoueur - 10; 
+        //--_viesJoueur;
         UIManager _uiManager = FindObjectOfType<UIManager>();
+        
         _uiManager.BarreDeVieLongueur(_viesJoueur);
         
-
-        if(_viesJoueur < 1)
+        //if(_viesJoueur < 1)
         {
             //SpawnManager _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
             //SpawnManager _spawnManager = FindObjectOfType<SpawnManager>();  Fait la même chose

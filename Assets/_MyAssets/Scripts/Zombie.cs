@@ -32,6 +32,7 @@ public class Zombie : MonoBehaviour
         if (collision.tag == "Player")
         {
             Player player = collision.transform.GetComponent<Player>();
+            player.Damage();
             //Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
             //player.Dommage();
             Destroy(gameObject);
