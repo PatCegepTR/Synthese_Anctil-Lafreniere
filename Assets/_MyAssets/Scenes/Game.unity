@@ -631,7 +631,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _vitesse: 10
-  _viesJoueur: 3
 --- !u!212 &1023267150
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -678,7 +677,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.65, y: 3.01}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -738,7 +737,7 @@ PolygonCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 2.65, y: 3.01}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 2.65, y: 3.01}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -1260,6 +1259,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2136544439 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 213841221298460389, guid: b081840b980eca14f8d2e5b2c91d014f, type: 3}
+  m_PrefabInstance: {fileID: 3626455102054935972}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3626455102054935972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1267,6 +1277,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 213841220691637415, guid: b081840b980eca14f8d2e5b2c91d014f, type: 3}
+      propertyPath: _barreVie
+      value: 
+      objectReference: {fileID: 2136544439}
+    - target: {fileID: 213841221298460389, guid: b081840b980eca14f8d2e5b2c91d014f, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 213841222463454894, guid: b081840b980eca14f8d2e5b2c91d014f, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -87.911
