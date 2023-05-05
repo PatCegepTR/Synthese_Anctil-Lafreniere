@@ -7,8 +7,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float _vitesse = 10.0f;
     //[SerializeField] private float _cadenceTir = 0.3f;
-    
-    [SerializeField] private Image _barreVie = default;
+
     //[SerializeField] private GameObject _laserPrefab = default;
     //[SerializeField] private GameObject _tripleLasersPrefab = default;
 
