@@ -788,6 +788,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vitesse: 10
   _forceSaut: 5
+  _idleLeft: {fileID: 7400000, guid: 92edbd3126b60cb4082741ea3806db4e, type: 2}
+  _idleRight: {fileID: 7400000, guid: 49590017906916f4695875d31b8e19e4, type: 2}
 --- !u!212 &1023267150
 SpriteRenderer:
   m_ObjectHideFlags: 0

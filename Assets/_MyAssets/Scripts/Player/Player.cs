@@ -2,47 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEditor;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private float _vitesse = 10.0f;
     [SerializeField] private float _forceSaut = 5.0f;
-    //[SerializeField] private float _cadenceTir = 0.3f;
+    [SerializeField] private AnimationClip _idleLeft = default;
+    [SerializeField] private AnimationClip _idleRight = default;
 
-    //[SerializeField] private GameObject _laserPrefab = default;
-    //[SerializeField] private GameObject _tripleLasersPrefab = default;
 
-    //private float _canFire = -1f;
-    //private float _cadenceInitiale;
     private Animator _anim;
     private float _viesJoueur = 100;
+
+    //test pour changer motion
+    
+
     private void Start()
     {
-        //_cadenceInitiale = _cadenceTir;  
         _anim = GetComponent<Animator>();
     }
 
     void Update()
     {
         MouvementsJoueur();
-        //TirLaser();
     }
 
-    //private void TirLaser()
-    //{
-        //if (Input.GetKey(KeyCode.Space) && Time.time > _canFire)
-        //{
-        //    if(!_isTripleActive) 
-        //    {
-        //        Instantiate(_laserPrefab, transform.position + new Vector3(0f, 0.85f, 0f), Quaternion.identity); //Quaternion est pour la rotation, le .identity c'est pour garder la même rotation
-        //    }
-        //    else 
-        //    {
-        //        Instantiate(_tripleLasersPrefab, transform.position + new Vector3(0f, 0.85f, 0f), Quaternion.identity); //Quaternion est pour la rotation, le .identity c'est pour garder la même rotation
-        //    }
-        //    _canFire = Time.time + _cadenceTir;
-        //}
-    //}
 
     private void MouvementsJoueur()
     {
@@ -71,13 +56,20 @@ public class Player : MonoBehaviour
             _anim.SetBool("TurnRight", false);
         }
 
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            //changer idleleft à right
+        }
 
-
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            //changer idleright à left
+        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("bozoooooo");
-            GetComponent<Rigidbody2D>().velocity = new Vector2(0,500);
+            //GetComponent<Rigidbody2D>().velocity = new Vector2(0,500);
         }
 
 
