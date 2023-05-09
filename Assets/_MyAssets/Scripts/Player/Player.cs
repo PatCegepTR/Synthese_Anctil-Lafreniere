@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     private float _viesJoueur = 100;
     private float _canFire = -1f;
     private float _direction = 0;
-
+    private float _posXFireB = 2.25f;
     //test pour changer motion
 
 
@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
             _canFire = Time.time + _cadenceTir;
             //AudioSource.PlayClipAtPoint(_sonLaser, Camera.main.transform.position, 0.5f);
             
-            Instantiate(_fireBallPrefab, transform.position + new Vector3(-2.25f, 0f, 0f), Quaternion.Euler(1, 0, _direction));
+            Instantiate(_fireBallPrefab, transform.position + new Vector3( _posXFireB , 0f, 0f), Quaternion.Euler(0, 0, _direction));
 
 
         }
@@ -62,6 +62,7 @@ public class Player : MonoBehaviour
             _anim.SetBool("TurnRight", false);
             _anim.SetBool("StaticRight", false);
             _direction = 0;
+            _posXFireB = -2.25f;
         }
         else if (horizInput > 0f)
         {
@@ -69,6 +70,7 @@ public class Player : MonoBehaviour
             _anim.SetBool("TurnLeft", false);
             _anim.SetBool("StaticRight", true);
             _direction = 180;
+            _posXFireB = 2.06f;
         }
         else
         {
