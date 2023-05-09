@@ -44,11 +44,13 @@ public class Player : MonoBehaviour
         {
             _anim.SetBool("TurnLeft", true);
             _anim.SetBool("TurnRight", false);
+            _anim.SetBool("StaticRight", false);
         }
         else if (horizInput > 0f)
         {
             _anim.SetBool("TurnRight", true);
             _anim.SetBool("TurnLeft", false);
+            _anim.SetBool("StaticRight", true);
         }
         else
         {
