@@ -8,15 +8,17 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float _vitesse = 10.0f;
     [SerializeField] private float _forceSaut = 5.0f;
-    [SerializeField] private AnimationClip _idleLeft = default;
-    [SerializeField] private AnimationClip _idleRight = default;
 
+    [SerializeField] private float _cadenceTir = 0.5f;
+    [SerializeField] private GameObject _fireBallPrefab = default;
 
     private Animator _anim;
     private float _viesJoueur = 100;
+    private float _canFire = -1f;
+
 
     //test pour changer motion
-    
+
 
     private void Start()
     {
@@ -26,8 +28,19 @@ public class Player : MonoBehaviour
     void Update()
     {
         MouvementsJoueur();
+        Tir();
     }
 
+    private void Tir()
+    {
+        if (Input.GetKey(KeyCode.Space) && Time.time > _canFire)
+        {
+            _canFire = Time.time + _cadenceTir;
+            //AudioSource.PlayClipAtPoint(_sonLaser, Camera.main.transform.position, 0.5f);
+            Instantiate(_fireBallPrefab, transform.position + new Vector3(2.25f, 0f, 0f), Quaternion.identity);
+
+        }
+    }
 
     private void MouvementsJoueur()
     {

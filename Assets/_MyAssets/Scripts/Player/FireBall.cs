@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class FireBall : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private float _vitesse = 14f;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(Vector3.right * Time.deltaTime * _vitesse);
+        if (transform.position.y > 60f)
+        {
+            Destroy(gameObject);
+        }
     }
 }
