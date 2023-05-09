@@ -5,6 +5,7 @@ using UnityEngine;
 public class Zombie : MonoBehaviour
 {
     [SerializeField] private float _vitesse = 7f;
+
     // Update is called once per frame
     void Update()
     {

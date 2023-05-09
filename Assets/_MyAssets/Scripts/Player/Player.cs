@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float _cadenceTir = 10f;
     [SerializeField] private float _cadenceDeFrappe = 1f;
     [SerializeField] private GameObject _fireBallPrefab = default;
+    [SerializeField] private GameObject _zoneEpeeDroite = default;
+    [SerializeField] private GameObject _zoneEpeeGauche = default;
 
     private Animator _anim;
     private float _viesJoueur = 100;
@@ -29,6 +31,7 @@ public class Player : MonoBehaviour
     {
         MouvementsJoueur();
         Tir();
+        CoupEpee();
     }
 
     private void Tir()
@@ -48,7 +51,9 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space) && Time.time > _canHit)
         {
-            _anim.SetBool("Attack", true)
+            _canHit = Time.time + _cadenceDeFrappe;
+            _anim.SetBool("Attack", true);
+            Instantiate(_zoneEpeeDroite, transform.position + new Vector3(2f, 0f, 0f), Quaternion.identity);
         }
     }
 
