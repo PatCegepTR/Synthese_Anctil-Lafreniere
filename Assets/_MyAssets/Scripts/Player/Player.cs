@@ -7,8 +7,6 @@ using UnityEditor;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float _vitesse = 10.0f;
-    [SerializeField] private float _forceSaut = 5.0f;
-
     [SerializeField] private float _cadenceTir = 10f;
     [SerializeField] private float _cadenceDeFrappe = 1f;
     [SerializeField] private GameObject _fireBallPrefab = default;
