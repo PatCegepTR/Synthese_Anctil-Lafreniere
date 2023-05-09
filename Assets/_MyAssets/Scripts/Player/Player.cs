@@ -58,10 +58,12 @@ public class Player : MonoBehaviour
             if(_anim.GetBool("StaticRight") == true)
             {
                 Instantiate(_zoneEpeeDroite, transform.position + new Vector3(2f, 0f, 0f), Quaternion.identity);
+                //Object.Destroy(gameObject, 2.0f);
             }
             else
             {
                 Instantiate(_zoneEpeeGauche, transform.position + new Vector3(-2f, 0f, 0f), Quaternion.identity);
+                //Object.Destroy(gameObject, 2.0f);
             }
 
         }
