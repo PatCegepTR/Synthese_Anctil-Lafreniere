@@ -9,25 +9,25 @@ public class Zombie : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.left * Time.deltaTime * _vitesse);
-        if (transform.position.x < -72f)
+        if (transform.position.x < -40f)
         {
             float randomX = Random.Range(-0.56f, -2.12f);
-            transform.position = new Vector3(72f, randomX, 0f);
+            transform.position = new Vector3(40f, randomX, 0f);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        /*
-        if (collision.tag == "Laser")
+        
+        if (collision.tag == "FireBall")
         {
             UIManager uIManager = FindObjectOfType<UIManager>();
-            uIManager.AjouterScore(_point);
+            //uIManager.AjouterScore(_point);
             Destroy(collision.gameObject);
-            DestructionEnnemi();
+            Destroy(gameObject);
 
         }
-        */
+        
 
         if (collision.tag == "Player")
         {
