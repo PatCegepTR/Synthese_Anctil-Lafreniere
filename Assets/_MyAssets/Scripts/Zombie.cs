@@ -27,8 +27,15 @@ public class Zombie : MonoBehaviour
             Destroy(gameObject);
 
         }
-        
 
+        if (collision.tag == "ZoneEpee")
+        {
+            UIManager uIManager = FindObjectOfType<UIManager>();
+            //uIManager.AjouterScore(_point);
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+
+        }
         if (collision.tag == "Player")
         {
             Player player = collision.transform.GetComponent<Player>();

@@ -10,11 +10,13 @@ public class Player : MonoBehaviour
     [SerializeField] private float _forceSaut = 5.0f;
 
     [SerializeField] private float _cadenceTir = 10f;
+    [SerializeField] private float _cadenceDeFrappe = 1f;
     [SerializeField] private GameObject _fireBallPrefab = default;
 
     private Animator _anim;
     private float _viesJoueur = 100;
     private float _canFire = 10f;
+    private float _canHit = -1f;
     private float _direction = 0;
     private float _posXFireB = 2.25f;
     //test pour changer motion
@@ -41,6 +43,14 @@ public class Player : MonoBehaviour
             Instantiate(_fireBallPrefab, transform.position + new Vector3( _posXFireB , 0f, 0f), Quaternion.Euler(0, 0, _direction));
 
 
+        }
+    }
+
+    private void CoupEpee()
+    {
+        if (Input.GetKey(KeyCode.Space) && Time.time > _canHit)
+        {
+            _anim.SetBool("Attack", true)
         }
     }
 
