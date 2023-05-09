@@ -846,8 +846,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vitesse: 10
   _forceSaut: 5
-  _idleLeft: {fileID: 7400000, guid: 92edbd3126b60cb4082741ea3806db4e, type: 2}
-  _idleRight: {fileID: 7400000, guid: 49590017906916f4695875d31b8e19e4, type: 2}
+  _cadenceTir: 0.5
+  _fireBallPrefab: {fileID: 2640817609114515642, guid: 356c0b641f5de7846ac07437179787e3, type: 3}
 --- !u!212 &1023267150
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -954,7 +954,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.98, y: 1.24}
+    oldSize: {x: 0.77, y: 0.98}
     newSize: {x: 2.65, y: 3.01}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
