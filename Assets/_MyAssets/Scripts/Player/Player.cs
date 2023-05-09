@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _anim = GetComponent<Animator>();
+        _anim.SetBool("StaticLeft", true);
     }
 
     void Update()
@@ -49,11 +50,24 @@ public class Player : MonoBehaviour
 
     private void CoupEpee()
     {
-        if (Input.GetKey(KeyCode.Space) && Time.time > _canHit)
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _canHit)
         {
             _canHit = Time.time + _cadenceDeFrappe;
             _anim.SetBool("Attack", true);
-            Instantiate(_zoneEpeeDroite, transform.position + new Vector3(2f, 0f, 0f), Quaternion.identity);
+
+            if(_anim.GetBool("StaticRight") == true)
+            {
+                Instantiate(_zoneEpeeDroite, transform.position + new Vector3(2f, 0f, 0f), Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(_zoneEpeeGauche, transform.position + new Vector3(-2f, 0f, 0f), Quaternion.identity);
+            }
+
+        }
+        else
+        {
+            _anim.SetBool("Attack", false);
         }
     }
 
@@ -74,6 +88,7 @@ public class Player : MonoBehaviour
             _anim.SetBool("TurnLeft", true);
             _anim.SetBool("TurnRight", false);
             _anim.SetBool("StaticRight", false);
+            _anim.SetBool("StaticLeft", true);
             _direction = 0;
             _posXFireB = -2.25f;
         }
@@ -82,6 +97,7 @@ public class Player : MonoBehaviour
             _anim.SetBool("TurnRight", true);
             _anim.SetBool("TurnLeft", false);
             _anim.SetBool("StaticRight", true);
+            _anim.SetBool("StaticLeft", false);
             _direction = 180;
             _posXFireB = 2.06f;
         }
