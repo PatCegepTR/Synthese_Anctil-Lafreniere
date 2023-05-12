@@ -9,7 +9,7 @@ using System.Runtime.CompilerServices;
 public class UIManager : MonoBehaviour  {
 
     [SerializeField] private TMP_Text _txtTemps = default;
-    [SerializeField] private int _score =  default;
+
     [SerializeField] private TextMeshProUGUI _txtScore = default;
     [SerializeField] private TextMeshProUGUI _txtGameOver = default;
     [SerializeField] private TextMeshProUGUI _txtRestart = default;
@@ -21,6 +21,8 @@ public class UIManager : MonoBehaviour  {
 
     private bool _pauseOn = false;
     private bool _gameOver = false;
+
+    private int _score = default;
     // Start is called before the first frame update
 
     private void Start() {
@@ -90,6 +92,11 @@ public class UIManager : MonoBehaviour  {
 
     private void UpdateScore() {
         _txtScore.text = "Score : " + _score.ToString();
+    }
+
+    public int getScore()
+    {
+        return _score;
     }
 
     public void BarreDeVieLongueur(float pointsVie) {

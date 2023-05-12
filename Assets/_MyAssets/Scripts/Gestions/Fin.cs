@@ -9,6 +9,7 @@ public class Fin : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _txtmeilleurpointage = default;
     // Start is called before the first frame update
 
+    private int _score = 0;
     private void Start()
     {
 
@@ -17,10 +18,12 @@ public class Fin : MonoBehaviour
 
     public void ScoreFin()
     {
+        UIManager _ui = FindObjectOfType<UIManager>();
+        _score = _ui.getScore();
         _txtmeilleurpointage.gameObject.SetActive(true);
         _txtpointageJoueur.gameObject.SetActive(true);
 
-        _txtpointageJoueur.text = "Pointage : " + PlayerPrefs.GetInt("pointage", 0);
+        _txtpointageJoueur.text = "Pointage : " + PlayerPrefs.GetInt("pointage", _score);
         if (PlayerPrefs.HasKey("meilleur"))
         {
             if (PlayerPrefs.GetInt("pointage") > PlayerPrefs.GetInt("meilleur"))
