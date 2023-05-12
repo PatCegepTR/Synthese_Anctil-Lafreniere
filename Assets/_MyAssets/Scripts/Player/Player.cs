@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _zoneEpeeDroite = default;
     [SerializeField] private GameObject _zoneEpeeGauche = default;
 
+    private GestionScenes _gestionScenes;
     private Animator _anim;
     private float _viesJoueur = 100;
     private float _canFire = 10f;
@@ -25,6 +27,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        _gestionScenes = FindObjectOfType<GestionScenes>();
         _anim = GetComponent<Animator>();
         _anim.SetBool("StaticLeft", true);
     }
@@ -145,14 +148,25 @@ public class Player : MonoBehaviour
         if(_viesJoueur <= 0)
         {
             //SpawnManager _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
-            SpawnManager _spawnManager = FindObjectOfType<SpawnManager>();
+            
 
-            _spawnManager.FinPartie();
-            Destroy(gameObject);
+            MortJoueur();
         } 
     }
 
-   
+    private void MortJoueur()
+    {
+        _anim.SetBool("DeathLeft", true);
 
-    
+        SpawnManager _spawnManager = FindObjectOfType<SpawnManager>();
+
+        _spawnManager.FinPartie();
+        //Destroy(gameObject);
+
+
+        //_gestionScenes.ChangerScene();
+    }
+
+
+
 }

@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 
 public class Fin : MonoBehaviour
-{
+{/*
     [SerializeField] private TextMeshProUGUI _txtpointageJoueur = default;
     [SerializeField] private TextMeshProUGUI _txtmeilleurpointage = default;
     // Start is called before the first frame update
@@ -37,5 +37,5 @@ public class Fin : MonoBehaviour
         }
         PlayerPrefs.Save();
         _txtmeilleurpointage.text = "Meilleur pointage : " + PlayerPrefs.GetInt("meilleur");
-    }
+    }*/
 }
