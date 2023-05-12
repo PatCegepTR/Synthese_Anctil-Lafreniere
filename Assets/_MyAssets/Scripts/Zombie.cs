@@ -23,7 +23,7 @@ public class Zombie : MonoBehaviour
         if (collision.tag == "FireBall")
         {
             UIManager uIManager = FindObjectOfType<UIManager>();
-            //uIManager.AjouterScore(_point);
+            uIManager.AjouterScore(10);
             Destroy(collision.gameObject);
             Destroy(gameObject);
 
@@ -32,7 +32,7 @@ public class Zombie : MonoBehaviour
         if (collision.tag == "ZoneEpee")
         {
             UIManager uIManager = FindObjectOfType<UIManager>();
-            //uIManager.AjouterScore(_point);
+            uIManager.AjouterScore(10);
             Destroy(collision.gameObject);
             Destroy(gameObject);
 
@@ -41,8 +41,7 @@ public class Zombie : MonoBehaviour
         {
             Player player = collision.transform.GetComponent<Player>();
             player.Damage();
-            //Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
-            //player.Dommage();
+
             Destroy(gameObject);
         }
     }

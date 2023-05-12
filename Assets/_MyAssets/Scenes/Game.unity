@@ -527,6 +527,17 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &388687043 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2102929354352493808, guid: b081840b980eca14f8d2e5b2c91d014f, type: 3}
+  m_PrefabInstance: {fileID: 3626455102054935972}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &418305983
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,7 +547,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 418305985}
-  - component: {fileID: 418305984}
   - component: {fileID: 418305986}
   m_Layer: 0
   m_Name: SpawnManager
@@ -545,18 +555,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &418305984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 418305983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdd389add7f9372458735a4abbbe0117, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &418305985
 Transform:
   m_ObjectHideFlags: 0
@@ -792,6 +790,7 @@ MonoBehaviour:
   _fireBallPrefab: {fileID: 2640817609114515642, guid: 356c0b641f5de7846ac07437179787e3, type: 3}
   _zoneEpeeDroite: {fileID: 3066912773850459116, guid: e82b95b40078f464fbbfd98e643d88c7, type: 3}
   _zoneEpeeGauche: {fileID: 6622653592980143235, guid: 32b3ed94fd60abc44b2735a0829335f0, type: 3}
+  _despawnEpee: 0
 --- !u!212 &1023267150
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1043,6 +1042,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1214181828 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 213841220691637468, guid: b081840b980eca14f8d2e5b2c91d014f, type: 3}
+  m_PrefabInstance: {fileID: 3626455102054935972}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1214181832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214181828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f847f2cb16a17c344a23e151d7ef788e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _txtpointageJoueur: {fileID: 1918574338}
+  _txtmeilleurpointage: {fileID: 388687043}
 --- !u!1 &1224925517
 GameObject:
   m_ObjectHideFlags: 3
@@ -1267,6 +1285,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1918574338 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 950313288445409565, guid: b081840b980eca14f8d2e5b2c91d014f, type: 3}
+  m_PrefabInstance: {fileID: 3626455102054935972}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1986038592
 GameObject:
   m_ObjectHideFlags: 0
@@ -1470,6 +1499,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 213841221305821654, guid: b081840b980eca14f8d2e5b2c91d014f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 213841221305821659, guid: b081840b980eca14f8d2e5b2c91d014f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 213841221305821659, guid: b081840b980eca14f8d2e5b2c91d014f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 103.499985
+      objectReference: {fileID: 0}
+    - target: {fileID: 213841221446825077, guid: b081840b980eca14f8d2e5b2c91d014f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 213841222547204448, guid: b081840b980eca14f8d2e5b2c91d014f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3626455101771526512, guid: b081840b980eca14f8d2e5b2c91d014f, type: 3}
       propertyPath: m_RootOrder
       value: 2

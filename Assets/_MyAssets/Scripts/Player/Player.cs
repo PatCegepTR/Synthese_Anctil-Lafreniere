@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     private float _canHit = -1f;
     private float _direction = 0;
     private float _posXFireB = 2.25f;
+    public float _despawnEpee = 0f;
     //test pour changer motion
 
 
@@ -58,12 +59,12 @@ public class Player : MonoBehaviour
             if(_anim.GetBool("StaticRight") == true)
             {
                 Instantiate(_zoneEpeeDroite, transform.position + new Vector3(2f, 0f, 0f), Quaternion.identity);
-                //Object.Destroy(gameObject, 2.0f);
+                _despawnEpee = Time.time + 0.5f;
             }
             else
             {
                 Instantiate(_zoneEpeeGauche, transform.position + new Vector3(-2f, 0f, 0f), Quaternion.identity);
-                //Object.Destroy(gameObject, 2.0f);
+                _despawnEpee = Time.time + 0.5f;
             }
 
         }
@@ -144,9 +145,10 @@ public class Player : MonoBehaviour
         if(_viesJoueur <= 0)
         {
             //SpawnManager _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
-            //SpawnManager _spawnManager = FindObjectOfType<SpawnManager>();  Fait la même chose
-            //_spawnManager.FinJeu();
-            //Destroy(gameObject);
+            SpawnManager _spawnManager = FindObjectOfType<SpawnManager>();
+
+            _spawnManager.FinPartie();
+            Destroy(gameObject);
         } 
     }
 

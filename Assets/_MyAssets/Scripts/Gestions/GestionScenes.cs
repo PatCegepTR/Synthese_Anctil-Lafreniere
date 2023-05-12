@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GestionScenes : MonoBehaviour
 {
-    
+    [SerializeField] private GameObject _Instruction = default;
     public void ChangerScene()
     {
         int indexScene = SceneManager.GetActiveScene().buildIndex;
@@ -23,4 +23,13 @@ public class GestionScenes : MonoBehaviour
     }
 
 
+    public void ChargerInstruction()
+    {
+        _Instruction.SetActive(true);
+    }
+
+    public void EnleverInstruction()
+    {
+        _Instruction.SetActive(false);
+    }
 }

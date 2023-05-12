@@ -7,7 +7,8 @@ using TMPro;
 using System.Runtime.CompilerServices;
 
 public class UIManager : MonoBehaviour  {
-    
+
+    [SerializeField] private TMP_Text _txtTemps = default;
     [SerializeField] private int _score =  default;
     [SerializeField] private TextMeshProUGUI _txtScore = default;
     [SerializeField] private TextMeshProUGUI _txtGameOver = default;
@@ -16,13 +17,16 @@ public class UIManager : MonoBehaviour  {
     [SerializeField] private Image _barreVie = default;
     [SerializeField] private Sprite[] _couleurBarre = default;
     [SerializeField] private GameObject _pausePanel = default;
+    [SerializeField] private GameObject _finPartie = default;
+
     private bool _pauseOn = false;
-    
+    private bool _gameOver = false;
     // Start is called before the first frame update
 
     private void Start() {
         _score = 0;
         _txtGameOver.gameObject.SetActive(false);
+        Time.timeScale = 1;
         //ChangeLivesDisplayImage(3);
         UpdateScore();
     }
@@ -32,6 +36,18 @@ public class UIManager : MonoBehaviour  {
         GestionRestartGame();
 
         GestionPause();
+
+        GestionTemps();
+
+    }
+
+    private void GestionTemps()
+    {
+        if (!_gameOver)
+        {
+            float temps = Time.time;
+            _txtTemps.text = "Temps : " + temps.ToString("f2");
+        }
     }
 
     private void GestionRestartGame()
@@ -107,6 +123,8 @@ public class UIManager : MonoBehaviour  {
         _txtGameOver.gameObject.SetActive(true);
         _txtRestart.gameObject.SetActive(true);
         _txtQuit.gameObject.SetActive(true);
+        _gameOver = true;
+        _finPartie.gameObject.SetActive(true);
         StartCoroutine(GameOverBlinkRoutine());
     }
 

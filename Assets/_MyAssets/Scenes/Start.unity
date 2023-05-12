@@ -207,6 +207,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1746801833 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1448896559, guid: a9d8ce8b0ecb9004ca13b5080cf2f742, type: 3}
+  m_PrefabInstance: {fileID: 744697580239148719}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &744697580239148719
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -214,6 +219,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1448896559, guid: a9d8ce8b0ecb9004ca13b5080cf2f742, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 744697578467454699, guid: a9d8ce8b0ecb9004ca13b5080cf2f742, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -270,6 +279,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4883152511491911242}
+    - target: {fileID: 1695927671031319551, guid: a9d8ce8b0ecb9004ca13b5080cf2f742, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4883152511491911242}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9d8ce8b0ecb9004ca13b5080cf2f742, type: 3}
 --- !u!1001 &4883152511491911241
@@ -283,6 +296,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GestionScenes
       objectReference: {fileID: 0}
+    - target: {fileID: 6759206610251537774, guid: 812fb9221334fc14cb3d15139b4bfc2d, type: 3}
+      propertyPath: _Instruction
+      value: 
+      objectReference: {fileID: 1746801833}
     - target: {fileID: 8436771686323540528, guid: 812fb9221334fc14cb3d15139b4bfc2d, type: 3}
       propertyPath: m_RootOrder
       value: 2
