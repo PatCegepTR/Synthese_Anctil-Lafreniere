@@ -7,7 +7,10 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private GameObject _prefabEnemie = default;
     //[SerializeField] private GameObject[] _listePUs = default;
     [SerializeField] private GameObject _enemyContainer = default;
+    [SerializeField] private float _tempsSpawn = 5.0f;
+
     private bool _isSpawning = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,10 +39,23 @@ public class SpawnManager : MonoBehaviour
             Vector3 posSpawn = new Vector3(40, Random.Range(-0.44f, -2f), 0);
             GameObject newEnemy = Instantiate(_prefabEnemie, posSpawn, Quaternion.identity);
             newEnemy.transform.parent = _enemyContainer.transform;
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(_tempsSpawn);
         }
-
+        while (!_isSpawning)
+        {
+            Vector3 posSpawn = new Vector3(-40, Random.Range(-0.44f, -2f), 0);
+            GameObject newEnemy = Instantiate(_prefabEnemie, posSpawn, Quaternion.identity);
+            newEnemy.transform.parent = _enemyContainer.transform;
+            yield return new WaitForSeconds(_tempsSpawn);
+        }
     }
+
+
+    public void LvlHarder()
+    {
+        _tempsSpawn = _tempsSpawn * 0.8f;
+    }
+
 
     public void FinPartie()
     {

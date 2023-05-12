@@ -573,6 +573,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefabEnemie: {fileID: 1630827973193480820, guid: 4ab15ed0ef268654d956a9f014410c1e, type: 3}
   _enemyContainer: {fileID: 1593086132}
+  _tempsSpawn: 5
 --- !u!1 &845796267
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,7 +776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vitesse: 10
   _cadenceTir: 10
-  _cadenceDeFrappe: 1
+  _cadenceDeFrappe: 0.5
   _fireBallPrefab: {fileID: 2640817609114515642, guid: 356c0b641f5de7846ac07437179787e3, type: 3}
   _zoneEpeeDroite: {fileID: 3066912773850459116, guid: e82b95b40078f464fbbfd98e643d88c7, type: 3}
   _zoneEpeeGauche: {fileID: 6622653592980143235, guid: 32b3ed94fd60abc44b2735a0829335f0, type: 3}

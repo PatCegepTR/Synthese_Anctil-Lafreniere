@@ -10,10 +10,20 @@ public class Zombie : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.left * Time.deltaTime * _vitesse);
-        if (transform.position.x < -40f)
+        TeleportationZombie();
+    }
+
+    private void TeleportationZombie()
+    {
+        if (transform.position.x < -41f)
         {
             float randomX = Random.Range(-0.56f, -2.12f);
             transform.position = new Vector3(40f, randomX, 0f);
+        }
+        if (transform.position.x > 41f)
+        {
+            float randomX = Random.Range(-0.56f, -2.12f);
+            transform.position = new Vector3(-40f, randomX, 0f);
         }
     }
 

@@ -14,14 +14,17 @@ public class UIManager : MonoBehaviour  {
     [SerializeField] private Image _barreVie = default;
     [SerializeField] private Sprite[] _couleurBarre = default;
     [SerializeField] private GameObject _pausePanel = default;
+    [SerializeField] private float _scoreLvlUp = 50;
 
     private bool _pauseOn = false;
     private bool _gameOver = false;
+    private SpawnManager _spawnManager;
 
     private int _score = default;
     // Start is called before the first frame update
 
     private void Start() {
+        _spawnManager = FindObjectOfType<SpawnManager>();
         _score = 0;
         Time.timeScale = 1;
         UpdateScore();
@@ -73,6 +76,12 @@ public class UIManager : MonoBehaviour  {
 
     private void UpdateScore() {
         _txtScore.text = "Score : " + _score.ToString();
+        
+        if(_score >= _scoreLvlUp ) 
+        {
+            _spawnManager.LvlHarder();
+            _scoreLvlUp = _scoreLvlUp * 4;
+        }
     }
 
     public int getScore()
