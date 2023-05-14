@@ -51,27 +51,18 @@ public class SpawnManager : MonoBehaviour
             newEnemy.transform.parent = _enemyContainer.transform;
             yield return new WaitForSeconds(_tempsSpawn);
         }
-
-        yield return new WaitForSeconds(3f);
-        while (!_isSpawning)
-            {
-                Vector3 posSpawn = new Vector3(40, Random.Range(-0.44f, -2f), 0);
-                GameObject newEnemy = Instantiate(_prefabBoss, posSpawn, Quaternion.identity);
-                newEnemy.transform.parent = _enemyContainer.transform;
-                yield return new WaitForSeconds(3f);
-            }
         
     }
 
     IEnumerator SpawnBossRoutine()
     {
-        yield return new WaitForSeconds(180f);
+        yield return new WaitForSeconds(3f);
         while (_bossISSpawning)
         {
             Vector3 posSpawn = new Vector3(40, 0, 0);
             GameObject newEnemy = Instantiate(_prefabBoss, posSpawn, Quaternion.identity);
             newEnemy.transform.parent = _enemyContainer.transform;
-            yield return new WaitForSeconds(120f);
+            yield return new WaitForSeconds(10f);
         }
 
     }

@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour  {
     [SerializeField] private Image _barreVie = default;
     [SerializeField] private Sprite[] _couleurBarre = default;
     [SerializeField] private GameObject _pausePanel = default;
-    [SerializeField] private float _scoreLvlUp = 50;
+    [SerializeField] private int _scoreLvlUp = 50;
 
     private bool _pauseOn = false;
     private bool _gameOver = false;

@@ -43,41 +43,43 @@ public class Boss : MonoBehaviour
                 }
                 else
                 {
+                    Destroy(collision.gameObject);
                     _vie--;
                 }
-                if (collision.tag == "ZoneEpee")
+            }
+                
+            if (collision.tag == "ZoneEpee")
+            {
+                if (_vie <= 1)
                 {
-                    if (_vie <= 1)
-                    {
-                        UIManager uIManager = FindObjectOfType<UIManager>();
+                    UIManager uIManager = FindObjectOfType<UIManager>();
                     uIManager.AjouterScore(10);
                     Destroy(collision.gameObject);
                     Destroy(gameObject);
-                    }
-                    else
-                    {
-                        _vie--;
-                    }
-
                 }
-                if (collision.tag == "Player")
+                else
                 {
-                    if (_vie <= 1)
-                    {
-                        Player player = collision.transform.GetComponent<Player>();
-                        player.Damage();
-                        Destroy(gameObject);
-
-                    }
-                    else
-                    {
-                        Player player = collision.transform.GetComponent<Player>();
-                        player.Damage();
-                        _vie--;
-                    }
+                    Destroy(collision.gameObject);
+                    _vie--;
                 }
-                
-            
+
+            }
+
+            if (collision.tag == "Player")
+            {
+                if (_vie <= 1)
+                {
+                    Player player = collision.transform.GetComponent<Player>();
+                    player.Damage();
+                    Destroy(gameObject);
+
+                }
+                else
+                {
+                    Player player = collision.transform.GetComponent<Player>();
+                    player.Damage();
+                    _vie--;
+                }
             }
         
         
