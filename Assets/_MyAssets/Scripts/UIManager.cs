@@ -82,6 +82,10 @@ public class UIManager : MonoBehaviour  {
             _spawnManager.LvlHarder();
             _scoreLvlUp = _scoreLvlUp * 4;
         }
+        if(_score >= 50)
+        {
+            _spawnManager.setBoss();
+        }
     }
 
     public int getScore()
