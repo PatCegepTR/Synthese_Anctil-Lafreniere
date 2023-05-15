@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _zoneEpeeDroite = default;
     [SerializeField] private GameObject _zoneEpeeGauche = default;
 
+
+    private GameObject _shield;
     private GestionScenes _gestionScenes;
     private Animator _anim;
     private float _viesJoueur = 100;
@@ -24,6 +26,10 @@ public class Player : MonoBehaviour
     public float _despawnEpee = 0f;
     //test pour changer motion
 
+    private void Awake()
+    {
+        _shield = transform.GetChild(0).gameObject;
+    }
 
     private void Start()
     {
@@ -121,20 +127,27 @@ public class Player : MonoBehaviour
 
     public void Damage()
     {
-
-        _viesJoueur = _viesJoueur - 10; 
-        //--_viesJoueur;
-        UIManager _uiManager = FindObjectOfType<UIManager>();
-        
-        _uiManager.BarreDeVieLongueur(_viesJoueur);
-        
-        if(_viesJoueur <= 0)
+        if (!_shield.activeSelf)
         {
-            //SpawnManager _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+            _viesJoueur = _viesJoueur - 10; 
+            //--_viesJoueur;
+            UIManager _uiManager = FindObjectOfType<UIManager>();
+        
+            _uiManager.BarreDeVieLongueur(_viesJoueur);
+        
+            if(_viesJoueur <= 0)
+            {
+                //SpawnManager _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
             
 
-            MortJoueur();
-        } 
+                MortJoueur();
+            } 
+        }
+        else
+        {
+            _shield.SetActive(false);
+        }
+        
     }
 
     private void MortJoueur()
@@ -148,6 +161,11 @@ public class Player : MonoBehaviour
 
 
         _gestionScenes.ChangerScene();
+    }
+
+    public void ShieldPu()
+    {
+        _shield.SetActive(true);
     }
 
 

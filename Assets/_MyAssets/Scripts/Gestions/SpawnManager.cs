@@ -16,19 +16,23 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartSpawn();
+    }
+
+    private void StartSpawn()
+    {
         StartCoroutine(SpawnEnemyRoutine());
         StartCoroutine(SpawnBossRoutine());
         StartCoroutine(SpawnPURoutine());
     }
 
 
-    
     IEnumerator SpawnPURoutine()
     {
         yield return new WaitForSeconds(3f);
         while (!_isSpawning)
         {
-            Vector3 posSpawn = new Vector3(Random.Range(-35f, 35f), -2f, 0);
+            Vector3 posSpawn = new Vector3(Random.Range(-35f, 35f), 7f, 0);
             int randomPU = Random.Range(0, _listePUs.Length);
             GameObject newPU = Instantiate(_listePUs[randomPU], posSpawn, Quaternion.identity);
             yield return new WaitForSeconds(3f);
