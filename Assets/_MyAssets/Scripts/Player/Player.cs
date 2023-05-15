@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _fireBallPrefab = default;
     [SerializeField] private GameObject _zoneEpeeDroite = default;
     [SerializeField] private GameObject _zoneEpeeGauche = default;
+    [SerializeField] private AudioClip _coupEpee = default;
 
 
     private GameObject _shield;
@@ -67,11 +68,13 @@ public class Player : MonoBehaviour
 
             if(_anim.GetBool("StaticRight") == true)
             {
+                AudioSource.PlayClipAtPoint(_coupEpee, transform.position, 0.4f);
                 Instantiate(_zoneEpeeDroite, transform.position + new Vector3(2f, 0f, 0f), Quaternion.identity);
                 _despawnEpee = Time.time + 0.5f;
             }
             else
             {
+                AudioSource.PlayClipAtPoint(_coupEpee, transform.position, 0.4f);
                 Instantiate(_zoneEpeeGauche, transform.position + new Vector3(-2f, 0f, 0f), Quaternion.identity);
                 _despawnEpee = Time.time + 0.5f;
             }
