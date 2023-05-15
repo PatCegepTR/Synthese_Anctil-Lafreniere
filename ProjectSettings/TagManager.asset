@@ -7,6 +7,7 @@ TagManager:
   - CamPlayer
   - FireBall
   - ZoneEpee
+  - Enemy
   layers:
   - Default
   - TransparentFX
