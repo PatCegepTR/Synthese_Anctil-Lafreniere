@@ -113,23 +113,6 @@ public class Player : MonoBehaviour
             _anim.SetBool("TurnRight", false);
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            //changer idleleft à right
-        }
-
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            //changer idleright à left
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("bozoooooo");
-            //GetComponent<Rigidbody2D>().velocity = new Vector2(0,500);
-        }
-
-
     }
 
 
@@ -164,7 +147,7 @@ public class Player : MonoBehaviour
         //Destroy(gameObject);
 
 
-        //_gestionScenes.ChangerScene();
+        _gestionScenes.ChangerScene();
     }
 
 

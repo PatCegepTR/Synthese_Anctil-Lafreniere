@@ -4,26 +4,14 @@ using TMPro;
 using UnityEngine;
 
 public class Fin : MonoBehaviour
-{/*
-    [SerializeField] private TextMeshProUGUI _txtpointageJoueur = default;
-    [SerializeField] private TextMeshProUGUI _txtmeilleurpointage = default;
-    // Start is called before the first frame update
+{
+    [SerializeField] private TMP_Text _txtPointage = default;
+    [SerializeField] private TMP_Text _txtMeilleurPointage = default;
 
-    private int _score = 0;
-    private void Start()
+    void Start()
     {
+        _txtPointage.text = "Pointage : " + PlayerPrefs.GetInt("pointage", 0);
 
-        ScoreFin();
-    }
-
-    public void ScoreFin()
-    {
-        UIManager _ui = FindObjectOfType<UIManager>();
-        _score = _ui.getScore();
-        _txtmeilleurpointage.gameObject.SetActive(true);
-        _txtpointageJoueur.gameObject.SetActive(true);
-
-        _txtpointageJoueur.text = "Pointage : " + PlayerPrefs.GetInt("pointage", _score);
         if (PlayerPrefs.HasKey("meilleur"))
         {
             if (PlayerPrefs.GetInt("pointage") > PlayerPrefs.GetInt("meilleur"))
@@ -33,9 +21,11 @@ public class Fin : MonoBehaviour
         }
         else
         {
-            PlayerPrefs.SetInt("meilleur", PlayerPrefs.GetInt("pointage"));
+            PlayerPrefs.SetInt("meilleur", PlayerPrefs.GetInt(_txtPointage.text));
         }
-        PlayerPrefs.Save();
-        _txtmeilleurpointage.text = "Meilleur pointage : " + PlayerPrefs.GetInt("meilleur");
-    }*/
+
+        _txtMeilleurPointage.text = "Meilleur Pointage : " + PlayerPrefs.GetInt("meilleur");
+
+
+    }
 }

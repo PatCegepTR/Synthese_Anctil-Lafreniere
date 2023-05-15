@@ -96,11 +96,11 @@ public class UIManager : MonoBehaviour  {
         _barreVie.fillAmount = pointsVie / 100;
         //Debug.Log(pointsVie / 100);
 
-        if (pointsVie >= 60)
+        if (pointsVie > 60)
         {
             _barreVie.sprite = _couleurBarre[0];
         }
-        else if(pointsVie >= 35)
+        else if(pointsVie > 35)
         {
             _barreVie.sprite = _couleurBarre[1];
         }
@@ -108,11 +108,23 @@ public class UIManager : MonoBehaviour  {
         {
             _barreVie.sprite = _couleurBarre[2];
         }
-        else if (pointsVie <= 15)
+        else if (pointsVie <= 0)
+        {
+            FinPartie();
+        }
+        else
         {
             _barreVie.sprite = _couleurBarre[3];
         }
+        
 
+
+    }
+
+    private void FinPartie()
+    {
+        PlayerPrefs.SetInt("pointage", _score);
+        PlayerPrefs.Save();
     }
 
     public void ResumeGame() {

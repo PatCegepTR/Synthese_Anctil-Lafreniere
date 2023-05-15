@@ -214,6 +214,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3465921549032662842, guid: da748600b9b859d47a5c83ff435173aa, type: 3}
+      propertyPath: m_Name
+      value: TxtMeilleurScore
+      objectReference: {fileID: 0}
     - target: {fileID: 5119851935807825144, guid: da748600b9b859d47a5c83ff435173aa, type: 3}
       propertyPath: m_Name
       value: UIEnd
@@ -262,5 +266,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6440033233884125435, guid: da748600b9b859d47a5c83ff435173aa, type: 3}
+      propertyPath: m_Name
+      value: TxtPointageJoueur
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da748600b9b859d47a5c83ff435173aa, type: 3}
+--- !u!114 &5119851936310726028 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6179012674381542447, guid: da748600b9b859d47a5c83ff435173aa, type: 3}
+  m_PrefabInstance: {fileID: 5119851936310726027}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5119851936310726029 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3825235718085876204, guid: da748600b9b859d47a5c83ff435173aa, type: 3}
+  m_PrefabInstance: {fileID: 5119851936310726027}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &5119851936310726030 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5119851935661727945, guid: da748600b9b859d47a5c83ff435173aa, type: 3}
+  m_PrefabInstance: {fileID: 5119851936310726027}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5119851936310726031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5119851936310726030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f847f2cb16a17c344a23e151d7ef788e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _txtPointage: {fileID: 5119851936310726029}
+  _txtMeilleurPointage: {fileID: 5119851936310726028}
