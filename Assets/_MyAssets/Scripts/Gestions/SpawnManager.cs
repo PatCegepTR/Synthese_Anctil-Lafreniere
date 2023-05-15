@@ -6,7 +6,7 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private GameObject _prefabEnemie = default;
     [SerializeField] private GameObject _prefabBoss = default;
-    //[SerializeField] private GameObject[] _listePUs = default;
+    [SerializeField] private GameObject[] _listePUs = default;
     [SerializeField] private GameObject _enemyContainer = default;
     [SerializeField] private float _tempsSpawn = 5.0f;
 
@@ -18,23 +18,23 @@ public class SpawnManager : MonoBehaviour
     {
         StartCoroutine(SpawnEnemyRoutine());
         StartCoroutine(SpawnBossRoutine());
-        //StartCoroutine(SpawnPURoutine());
+        StartCoroutine(SpawnPURoutine());
     }
 
 
-    /*
+    
     IEnumerator SpawnPURoutine()
     {
         yield return new WaitForSeconds(3f);
         while (!_isSpawning)
         {
-            Vector3 posSpawn = new Vector3(Random.Range(-8.0f, 8.0f), 7f, 0);
+            Vector3 posSpawn = new Vector3(Random.Range(-35f, 35f), -2f, 0);
             int randomPU = Random.Range(0, _listePUs.Length);
             GameObject newPU = Instantiate(_listePUs[randomPU], posSpawn, Quaternion.identity);
-            yield return new WaitForSeconds(40f);
+            yield return new WaitForSeconds(3f);
         }
     }
-    */
+    
 
     IEnumerator SpawnEnemyRoutine()
     {
