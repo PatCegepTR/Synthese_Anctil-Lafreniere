@@ -20,6 +20,8 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine(SpawnBossRoutine());
         //StartCoroutine(SpawnPURoutine());
     }
+
+
     /*
     IEnumerator SpawnPURoutine()
     {
@@ -44,13 +46,6 @@ public class SpawnManager : MonoBehaviour
             newEnemy.transform.parent = _enemyContainer.transform;
             yield return new WaitForSeconds(_tempsSpawn);
         }
-        while (!_isSpawning)
-        {
-            Vector3 posSpawn = new Vector3(-40, Random.Range(-0.44f, -2f), 0);
-            GameObject newEnemy = Instantiate(_prefabEnemie, posSpawn, Quaternion.identity);
-            newEnemy.transform.parent = _enemyContainer.transform;
-            yield return new WaitForSeconds(_tempsSpawn);
-        }
         
     }
 
@@ -70,6 +65,7 @@ public class SpawnManager : MonoBehaviour
     public void setBoss()
     {
         _bossISSpawning = true;
+ 
     }
 
     public void LvlHarder()
@@ -81,5 +77,6 @@ public class SpawnManager : MonoBehaviour
     public void FinPartie()
     {
         _isSpawning = true;
+        _bossISSpawning = false;
     }
 }

@@ -27,15 +27,14 @@ public class UIManager : MonoBehaviour  {
         _spawnManager = FindObjectOfType<SpawnManager>();
         _score = 0;
         Time.timeScale = 1;
-        UpdateScore();
+        
     }
 
     private void Update()
     {
         GestionPause();
-
         GestionTemps();
-
+        UpdateScore();
     }
 
     private void GestionTemps()
@@ -71,7 +70,6 @@ public class UIManager : MonoBehaviour  {
 
     public void AjouterScore(int points) {
         _score += points;
-        UpdateScore();
     }
 
     private void UpdateScore() {
