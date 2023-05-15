@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float _vitesse = 10.0f;
     [SerializeField] private float _cadenceTir = 10f;
-    [SerializeField] private float _cadenceDeFrappe = 0.5f;
+    [SerializeField] private float _cadenceDeFrappe = 0.8f;
     [SerializeField] private GameObject _fireBallPrefab = default;
     [SerializeField] private GameObject _zoneEpeeDroite = default;
     [SerializeField] private GameObject _zoneEpeeGauche = default;
@@ -69,14 +69,12 @@ public class Player : MonoBehaviour
             if(_anim.GetBool("StaticRight") == true)
             {
                 AudioSource.PlayClipAtPoint(_coupEpee, transform.position, 0.4f);
-                Instantiate(_zoneEpeeDroite, transform.position + new Vector3(2f, 0f, 0f), Quaternion.identity);
-                _despawnEpee = Time.time + 0.5f;
+                StartCoroutine(AttenteCoupDroit());
             }
             else
             {
                 AudioSource.PlayClipAtPoint(_coupEpee, transform.position, 0.4f);
-                Instantiate(_zoneEpeeGauche, transform.position + new Vector3(-2f, 0f, 0f), Quaternion.identity);
-                _despawnEpee = Time.time + 0.5f;
+                StartCoroutine(AttenteCoupGauche());
             }
 
         }
@@ -84,6 +82,19 @@ public class Player : MonoBehaviour
         {
             _anim.SetBool("Attack", false);
         }
+    }
+
+    IEnumerator AttenteCoupDroit()
+    {
+        yield return new WaitForSecondsRealtime(0.1f);
+        Instantiate(_zoneEpeeDroite, transform.position + new Vector3(2f, 0f, 0f), Quaternion.identity);
+        _despawnEpee = Time.time + 0.5f;
+    }
+    IEnumerator AttenteCoupGauche()
+    {
+        yield return new WaitForSecondsRealtime(0.1f);
+        Instantiate(_zoneEpeeGauche, transform.position + new Vector3(-2f, 0f, 0f), Quaternion.identity);
+        _despawnEpee = Time.time + 0.5f;
     }
 
     private void MouvementsJoueur()
