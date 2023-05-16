@@ -31,13 +31,13 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnPURoutine()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(40f);
         while (!_isSpawning)
         {
             Vector3 posSpawn = new Vector3(Random.Range(-35f, 35f), 7f, 0);
             int randomPU = Random.Range(0, _listePUs.Length);
             GameObject newPU = Instantiate(_listePUs[randomPU], posSpawn, Quaternion.identity);
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(40f);
         }
     }
     
