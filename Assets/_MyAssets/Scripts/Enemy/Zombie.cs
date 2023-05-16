@@ -6,6 +6,7 @@ public class Zombie : MonoBehaviour
 {
     [SerializeField] private float _vitesse = 7f;
     [SerializeField] private GameObject _explosionPrefab = default;
+    [SerializeField] private AudioClip _hitZombie = default;
 
 
 
@@ -56,6 +57,7 @@ public class Zombie : MonoBehaviour
         {
             UIManager uIManager = FindObjectOfType<UIManager>();
             uIManager.AjouterScore(10);
+            AudioSource.PlayClipAtPoint(_hitZombie, transform.position, 0.4f);
             Destroy(collision.gameObject);
             Destroy(gameObject);
 
