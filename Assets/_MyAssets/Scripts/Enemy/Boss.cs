@@ -75,19 +75,10 @@ public class Boss : MonoBehaviour
 
             if (collision.tag == "Player")
             {
-                if (_vie <= 1)
-                {
-                    Player player = collision.transform.GetComponent<Player>();
-                    player.Damage();
-                    Destroy(gameObject);
 
-                }
-                else
-                {
                     Player player = collision.transform.GetComponent<Player>();
                     player.Damage();
-                    _vie--;
-                }
+                
             }
         
         

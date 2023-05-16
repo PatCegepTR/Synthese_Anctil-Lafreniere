@@ -65,7 +65,7 @@ public class Zombie : MonoBehaviour
             Player player = collision.transform.GetComponent<Player>();
             player.Damage();
 
-            Destroy(gameObject);
+          
         }
     }
 

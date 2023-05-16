@@ -57,13 +57,13 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnSnakeRoutine()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(140f);
         while (!_isSpawning)
         {
-            Vector3 posSpawn = new Vector3(-40, Random.Range(-0.6f, -2f), 0);
+            Vector3 posSpawn = new Vector3(-40, Random.Range(-1f, -2f), 0);
             GameObject newEnemy = Instantiate(_prefabSnake, posSpawn, Quaternion.Euler(0f,180f,0f));
             newEnemy.transform.parent = _enemyContainer.transform;
-            yield return new WaitForSeconds(_tempsSpawn);
+            yield return new WaitForSeconds(12f);
         }
 
     }
