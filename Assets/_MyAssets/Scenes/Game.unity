@@ -700,6 +700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefabEnemie: {fileID: 1630827973193480820, guid: 4ab15ed0ef268654d956a9f014410c1e, type: 3}
+  _prefabSnake: {fileID: 7320343877732424966, guid: 11cc4f7c3f52b384ba5cd33cf7b518a6, type: 3}
   _prefabBoss: {fileID: 9209651274164457637, guid: 38ad9a038dc791441b947d5415c0693a, type: 3}
   _listePUs:
   - {fileID: 4329088646189236703, guid: 3d95a502ed7f63449b9592016baa3d69, type: 3}
