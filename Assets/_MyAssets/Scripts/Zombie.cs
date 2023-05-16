@@ -5,7 +5,19 @@ using UnityEngine;
 public class Zombie : MonoBehaviour
 {
     [SerializeField] private float _vitesse = 7f;
+    [SerializeField] private GameObject _explosionPrefab = default;
 
+
+
+
+
+
+
+
+    private void Awake()
+    {
+
+    }
     // Update is called once per frame
     void Update()
     {
@@ -35,6 +47,7 @@ public class Zombie : MonoBehaviour
             UIManager uIManager = FindObjectOfType<UIManager>();
             uIManager.AjouterScore(10);
             Destroy(collision.gameObject);
+            Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
 
         }
@@ -55,4 +68,8 @@ public class Zombie : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+
+     
+    
 }

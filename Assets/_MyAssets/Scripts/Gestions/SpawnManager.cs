@@ -55,20 +55,20 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnBossRoutine()
     {
-        yield return new WaitForSeconds(3f);
-        while (_bossISSpawning)
+        yield return new WaitForSeconds(120f);
+        while (!_bossISSpawning)
         {
             Vector3 posSpawn = new Vector3(40, 0, 0);
             GameObject newEnemy = Instantiate(_prefabBoss, posSpawn, Quaternion.identity);
             newEnemy.transform.parent = _enemyContainer.transform;
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(120f);
         }
 
     }
 
     public void setBoss()
     {
-        _bossISSpawning = true;
+        _bossISSpawning = false;
  
     }
 
@@ -81,6 +81,6 @@ public class SpawnManager : MonoBehaviour
     public void FinPartie()
     {
         _isSpawning = true;
-        _bossISSpawning = false;
+        _bossISSpawning = true;
     }
 }

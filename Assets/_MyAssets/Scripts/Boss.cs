@@ -5,8 +5,15 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
     [SerializeField] private float _vitesse = 3f;
+    [SerializeField] private GameObject _explosionPrefab = default;
+
 
     private int _vie = 3;
+
+
+
+
+
     // Update is called once per frame
     void Update()
     {
@@ -38,6 +45,7 @@ public class Boss : MonoBehaviour
                     UIManager uIManager = FindObjectOfType<UIManager>();
                     uIManager.AjouterScore(10);
                     Destroy(collision.gameObject);
+                    Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
                     Destroy(gameObject);
 
                 }
@@ -84,4 +92,9 @@ public class Boss : MonoBehaviour
         
         
     }
+
+
+
+      
+    
 }

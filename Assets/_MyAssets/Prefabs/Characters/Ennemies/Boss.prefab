@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _vitesse: 3
+  _explosionPrefab: {fileID: 6295371117975329901, guid: 71a5fc0e28bf9ce40b38637c9e5cacf7, type: 3}
 --- !u!60 &5687502749544262482
 PolygonCollider2D:
   m_ObjectHideFlags: 0

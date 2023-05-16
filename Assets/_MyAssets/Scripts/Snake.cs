@@ -5,6 +5,13 @@ using UnityEngine;
 public class Snake : MonoBehaviour
 {
     [SerializeField] private float _vitesse = 7f;
+    [SerializeField] private GameObject _explosionPrefab = default;
+
+    private GameObject _explosion;
+
+
+
+
 
     // Update is called once per frame
     void Update()
@@ -30,6 +37,7 @@ public class Snake : MonoBehaviour
             UIManager uIManager = FindObjectOfType<UIManager>();
             uIManager.AjouterScore(10);
             Destroy(collision.gameObject);
+            Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
 
         }
@@ -50,4 +58,8 @@ public class Snake : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+
+      
+    
 }

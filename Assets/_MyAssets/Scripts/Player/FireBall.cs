@@ -24,12 +24,5 @@ public class FireBall : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Enemy")
-        {
-            _anim.SetBool("hit", true);
-            _vitesse = 0f;
-        }
-    }
+
 }
