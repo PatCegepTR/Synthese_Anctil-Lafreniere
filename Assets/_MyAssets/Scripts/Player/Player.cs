@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _zoneEpeeDroite = default;
     [SerializeField] private GameObject _zoneEpeeGauche = default;
     [SerializeField] private AudioClip _coupEpee = default;
+    [SerializeField] private AudioClip _sonMal = default;
 
 
     private GameObject _shield;
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour
     private float _posXFireB = 2.25f;
     public float _despawnEpee = 0f;
     private float _TempsHeal = 2f;
+    private bool _canMove = true;
     //test pour changer motion
 
     private void Awake()
@@ -111,40 +113,43 @@ public class Player : MonoBehaviour
 
     private void MouvementsJoueur()
     {
-        float horizInput = Input.GetAxis("Horizontal");
-        float vertInput = Input.GetAxis("Vertical");
-
-
-        //Mouvements personnage
-        Vector3 direction = new Vector3(horizInput, vertInput, 0f);
-        transform.Translate(direction * Time.deltaTime * _vitesse);
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -34f, 34f), -1.34f, 0f);
-
-        //Orientation personnage avec animations
-        if (horizInput < 0f)
+        if (_canMove == true)
         {
-            _anim.SetBool("TurnLeft", true);
-            _anim.SetBool("TurnRight", false);
-            _anim.SetBool("StaticRight", false);
-            _anim.SetBool("StaticLeft", true);
-            _direction = 0;
-            _posXFireB = -2.25f;
-        }
-        else if (horizInput > 0f)
-        {
-            _anim.SetBool("TurnRight", true);
-            _anim.SetBool("TurnLeft", false);
-            _anim.SetBool("StaticRight", true);
-            _anim.SetBool("StaticLeft", false);
-            _direction = 180;
-            _posXFireB = 2.06f;
-        }
-        else
-        {
-            _anim.SetBool("TurnLeft", false);
-            _anim.SetBool("TurnRight", false);
-        }
 
+            float horizInput = Input.GetAxis("Horizontal");
+            float vertInput = Input.GetAxis("Vertical");
+
+
+            //Mouvements personnage
+            Vector3 direction = new Vector3(horizInput, vertInput, 0f);
+            transform.Translate(direction * Time.deltaTime * _vitesse);
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -34f, 34f), -1.34f, 0f);
+
+            //Orientation personnage avec animations
+            if (horizInput < 0f)
+            {
+                _anim.SetBool("TurnLeft", true);
+                _anim.SetBool("TurnRight", false);
+                _anim.SetBool("StaticRight", false);
+                _anim.SetBool("StaticLeft", true);
+                _direction = 0;
+                _posXFireB = -2.25f;
+            }
+            else if (horizInput > 0f)
+            {
+                _anim.SetBool("TurnRight", true);
+                _anim.SetBool("TurnLeft", false);
+                _anim.SetBool("StaticRight", true);
+                _anim.SetBool("StaticLeft", false);
+                _direction = 180;
+                _posXFireB = 2.06f;
+            }
+            else
+            {
+                _anim.SetBool("TurnLeft", false);
+                _anim.SetBool("TurnRight", false);
+            }
+        }
     }
 
 
@@ -155,7 +160,10 @@ public class Player : MonoBehaviour
     {
         if (!_shield.activeSelf)
         {
-            _viesJoueur = _viesJoueur - 10; 
+            StartCoroutine(HitAnimation());
+
+            _viesJoueur = _viesJoueur - 10;
+            AudioSource.PlayClipAtPoint(_sonMal, transform.position, 0.4f);
             //--_viesJoueur;
             UIManager _uiManager = FindObjectOfType<UIManager>();
         
@@ -176,7 +184,23 @@ public class Player : MonoBehaviour
         
     }
 
-    private void MortJoueur()
+    IEnumerator HitAnimation()
+    {
+        _anim.SetBool("Hit", true);
+        _canMove = false;
+        yield return new WaitForSecondsRealtime(2f);
+        _anim.SetBool("Hit", false);
+        _canMove = true;
+    }
+
+
+
+
+
+
+
+
+    public void MortJoueur()
     {
         _anim.SetBool("DeathLeft", true);
 

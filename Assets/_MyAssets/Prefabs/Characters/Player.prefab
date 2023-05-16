@@ -214,6 +214,7 @@ MonoBehaviour:
   _zoneEpeeDroite: {fileID: 3066912773850459116, guid: e82b95b40078f464fbbfd98e643d88c7, type: 3}
   _zoneEpeeGauche: {fileID: 6622653592980143235, guid: 32b3ed94fd60abc44b2735a0829335f0, type: 3}
   _coupEpee: {fileID: 8300000, guid: 45238e9a891c6f0479203fbb8ff0c159, type: 3}
+  _sonMal: {fileID: 8300000, guid: 37ae85ff8dc5888419649e7ef12c2475, type: 3}
   _despawnEpee: 0.5
 --- !u!95 &1693966835985937689
 Animator:
