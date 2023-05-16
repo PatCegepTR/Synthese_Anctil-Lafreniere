@@ -34,7 +34,7 @@ public class PowerUp : MonoBehaviour
                         player.ShieldPu();
                         break;
                     case 1:
-                        //player.SpeedPowerUp();
+                        player.HealPowerUp();
                         break;
                     case 2:
                         //player.ShieldPowerUp();

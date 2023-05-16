@@ -704,6 +704,7 @@ MonoBehaviour:
   _prefabBoss: {fileID: 9209651274164457637, guid: 38ad9a038dc791441b947d5415c0693a, type: 3}
   _listePUs:
   - {fileID: 4329088646189236703, guid: 3d95a502ed7f63449b9592016baa3d69, type: 3}
+  - {fileID: 5106361503554160963, guid: 371bc023999d167489597702a918d4fe, type: 3}
   _enemyContainer: {fileID: 1593086132}
   _tempsSpawn: 5
 --- !u!1 &482232075

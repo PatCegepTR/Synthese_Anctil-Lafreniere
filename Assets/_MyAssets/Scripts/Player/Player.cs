@@ -17,19 +17,22 @@ public class Player : MonoBehaviour
 
 
     private GameObject _shield;
+    private GameObject _heal;
     private GestionScenes _gestionScenes;
     private Animator _anim;
-    private float _viesJoueur = 100;
+    private float _viesJoueur = 100f;
     private float _canFire = 10f;
     private float _canHit = -1f;
     private float _direction = 0;
     private float _posXFireB = 2.25f;
     public float _despawnEpee = 0f;
+    private float _TempsHeal = 2f;
     //test pour changer motion
 
     private void Awake()
     {
         _shield = transform.GetChild(0).gameObject;
+        _heal = transform.GetChild(1).gameObject;
     }
 
     private void Start()
@@ -44,6 +47,15 @@ public class Player : MonoBehaviour
         MouvementsJoueur();
         Tir();
         CoupEpee();
+        Heal();
+    }
+
+    private void Heal()
+    {
+        if (Time.time >= _TempsHeal)
+        {
+            _heal.SetActive(false);
+        }
     }
 
     private void Tir()
@@ -180,6 +192,20 @@ public class Player : MonoBehaviour
     public void ShieldPu()
     {
         _shield.SetActive(true);
+    }
+
+    public void HealPowerUp()
+    {
+        _heal.SetActive(true);
+        _viesJoueur = _viesJoueur + 30f;
+        if (_viesJoueur >= 100f)
+        {
+            _viesJoueur = 100;
+        }
+        UIManager _uiManager = FindObjectOfType<UIManager>();
+
+        _uiManager.BarreDeVieLongueur(_viesJoueur);
+        _TempsHeal = Time.time + 2;
     }
 
 
