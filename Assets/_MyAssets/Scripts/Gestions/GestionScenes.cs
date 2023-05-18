@@ -33,4 +33,9 @@ public class GestionScenes : MonoBehaviour
     {
         _Instruction.SetActive(false);
     }
+
+    public void Recommencer()
+    {
+        SceneManager.LoadScene(1);
+    }
 }
