@@ -7,10 +7,10 @@ public class Fin : MonoBehaviour
 {
     [SerializeField] private TMP_Text _txtPointage = default;
     [SerializeField] private TMP_Text _txtMeilleurPointage = default;
-    //[SerializeField] private Button _button = default;
-    [SerializeField] private GameObject _saisieNom = default;
+    [SerializeField] private GameObject _newRecordMenu = default;
+    [SerializeField] private TMP_InputField _leNom = default;
 
-    void Start()
+    private void Start()
     {
         _txtPointage.text = "Pointage : " + PlayerPrefs.GetInt("pointage", 0);
 
@@ -18,7 +18,7 @@ public class Fin : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("pointage") > PlayerPrefs.GetInt("meilleur"))
             {
-                _saisieNom.SetActive(true);
+                _newRecordMenu.SetActive(true);
                 PlayerPrefs.SetInt("meilleur", PlayerPrefs.GetInt("pointage"));
             }
         }
@@ -27,8 +27,19 @@ public class Fin : MonoBehaviour
             PlayerPrefs.SetInt("meilleur", PlayerPrefs.GetInt(_txtPointage.text));
         }
 
-        _txtMeilleurPointage.text = "Meilleur Pointage : " + PlayerPrefs.GetInt("meilleur");
+        _txtMeilleurPointage.text = "Record : " + PlayerPrefs.GetString("nomMeilleur", "Patrice") + " avec " + PlayerPrefs.GetInt("meilleur");
 
 
     }
+
+
+    public void EnregistrerNom()
+    {
+        string _nom = _leNom.text;
+        PlayerPrefs.SetInt("meilleur", PlayerPrefs.GetInt("pointage"));
+        PlayerPrefs.SetString("nomMeilleur", _nom);
+        _newRecordMenu.SetActive(false);
+
+    }
+
 }
