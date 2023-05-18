@@ -16,6 +16,12 @@ public class Instruction : MonoBehaviour
 
     public string InstructionDepart()
     {
-        return "*** Bonjours" + "\r\n";
+        return "Le but du jeu est de survivre aux vagues incessentes d'ennemies. " +
+            "Au fur et à mesure que vous avancez dans le temps. Différents types " +
+            "d'ennemies feront leur apparition. Rendant de ce fait le jeu beaucoup " +
+            "plus difficile." + "\r\n" + "\r\n" +
+            "Déplacement-A et D " + "\r\n" + 
+            "Espace.  attack corp à corp" + "\r\n" +
+            "E. attack distance" + "\r\n";
     }
 }

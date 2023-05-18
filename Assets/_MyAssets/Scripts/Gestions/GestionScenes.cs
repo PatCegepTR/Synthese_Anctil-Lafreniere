@@ -25,6 +25,7 @@ public class GestionScenes : MonoBehaviour
 
     public void ChargerInstruction()
     {
+        Debug.Log(_Instruction);
         _Instruction.SetActive(true);
     }
 
