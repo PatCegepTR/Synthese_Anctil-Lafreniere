@@ -7,6 +7,8 @@ public class Fin : MonoBehaviour
 {
     [SerializeField] private TMP_Text _txtPointage = default;
     [SerializeField] private TMP_Text _txtMeilleurPointage = default;
+    //[SerializeField] private Button _button = default;
+    [SerializeField] private GameObject _saisieNom = default;
 
     void Start()
     {
@@ -16,6 +18,7 @@ public class Fin : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("pointage") > PlayerPrefs.GetInt("meilleur"))
             {
+                _saisieNom.SetActive(true);
                 PlayerPrefs.SetInt("meilleur", PlayerPrefs.GetInt("pointage"));
             }
         }
