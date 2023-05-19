@@ -39,7 +39,7 @@ public class Fin : MonoBehaviour
         PlayerPrefs.SetInt("meilleur", PlayerPrefs.GetInt("pointage"));
         PlayerPrefs.SetString("nomMeilleur", _nom);
         _newRecordMenu.SetActive(false);
-
+        _txtMeilleurPointage.text = "Record : " + PlayerPrefs.GetString("nomMeilleur", "Patrice") + " avec " + PlayerPrefs.GetInt("meilleur");
     }
 
 }
