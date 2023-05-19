@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 public class GestionScenes : MonoBehaviour
 {
     [SerializeField] private GameObject _Instruction = default;
+
+  
     public void ChangerScene()
     {
         int indexScene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(indexScene + 1);
+ 
     }
 
     public void Quitter()
@@ -19,6 +22,7 @@ public class GestionScenes : MonoBehaviour
 
     public void RetournerAuMenu()
     {
+       
         SceneManager.LoadScene(0);
     }
 
@@ -36,6 +40,9 @@ public class GestionScenes : MonoBehaviour
 
     public void Recommencer()
     {
+     
         SceneManager.LoadScene(1);
     }
+
+
 }

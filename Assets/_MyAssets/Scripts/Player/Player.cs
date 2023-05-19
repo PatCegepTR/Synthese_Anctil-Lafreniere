@@ -158,7 +158,7 @@ public class Player : MonoBehaviour
 
     public void Damage()
     {
-        if (!_shield.activeSelf)
+        if (!_shield.activeSelf && _canMove)
         {
             StartCoroutine(HitAnimation());
 

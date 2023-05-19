@@ -16,10 +16,11 @@ public class UIManager : MonoBehaviour  {
     [SerializeField] private GameObject _pausePanel = default;
     [SerializeField] private int _scoreLvlUp = 50;
 
+
     private bool _pauseOn = false;
     private bool _gameOver = false;
     private SpawnManager _spawnManager;
-
+    private float _time = 0;
     private int _score = default;
     // Start is called before the first frame update
 
@@ -27,7 +28,7 @@ public class UIManager : MonoBehaviour  {
         _spawnManager = FindObjectOfType<SpawnManager>();
         _score = 0;
         Time.timeScale = 1;
-        
+        _time = Time.time;
     }
 
     private void Update()
@@ -41,7 +42,7 @@ public class UIManager : MonoBehaviour  {
     {
         if (!_gameOver)
         {
-            float temps = Time.time;
+            float temps = Time.time - _time;
             _txtTemps.text = "Temps : " + temps.ToString("f2");
         }
     }
